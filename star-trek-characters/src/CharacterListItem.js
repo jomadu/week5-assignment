@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-import { fetchCharacter } from "./characterHelpers";
+import { fetchCharacter, fetchCharacterFake } from "./characterHelpers";
 
 const CharacterListItem = ({ uid }) => {
   const [data, setData] = useState(null);
@@ -10,6 +10,7 @@ const CharacterListItem = ({ uid }) => {
 
   useEffect(() => {
     fetchCharacter(uid)
+      // fetchCharacterFake(uid)
       .then((response) => response.json())
       .then((data) => {
         setData(data);

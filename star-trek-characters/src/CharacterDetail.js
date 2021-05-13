@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { fetchCharacter } from "./characterHelpers";
+import { fetchCharacter, fetchCharacterFake } from "./characterHelpers";
 
 const CharacterDetail = (props) => {
   const { uid } = useParams();
@@ -11,6 +11,7 @@ const CharacterDetail = (props) => {
 
   useEffect(() => {
     fetchCharacter(uid)
+      // fetchCharacterFake(uid)
       .then((response) => response.json())
       .then((data) => {
         setData(data);
