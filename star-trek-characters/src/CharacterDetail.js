@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { fetchCharacterFake } from "./characterHelpers";
+import { fetchCharacter } from "./characterHelpers";
 
 const CharacterDetail = (props) => {
   const { uid } = useParams();
@@ -10,8 +10,7 @@ const CharacterDetail = (props) => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    //fetchCharacter(uid)
-    fetchCharacterFake(uid)
+    fetchCharacter(uid)
       .then((response) => response.json())
       .then((data) => {
         setData(data);
